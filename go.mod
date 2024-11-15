@@ -1,4 +1,4 @@
-module github.com/panjf2000/gnet/v2
+module github.com/szza/gnet/v2
 
 require (
 	github.com/panjf2000/ants/v2 v2.10.0
@@ -9,6 +9,8 @@ require (
 	golang.org/x/sys v0.25.0
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1
 )
+
+require github.com/panjf2000/gnet/v2 v2.6.1
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
