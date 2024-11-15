@@ -25,16 +25,16 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	"github.com/szza/gnet/v2/pkg/buffer/elastic"
-	errorx "github.com/szza/gnet/v2/pkg/errors"
-	"github.com/szza/gnet/v2/pkg/logging"
-	bsPool "github.com/szza/gnet/v2/pkg/pool/byteslice"
 	"github.com/szza/gnet/v2/internal/bs"
 	"github.com/szza/gnet/v2/internal/gfd"
 	gio "github.com/szza/gnet/v2/internal/io"
 	"github.com/szza/gnet/v2/internal/netpoll"
 	"github.com/szza/gnet/v2/internal/queue"
 	"github.com/szza/gnet/v2/internal/socket"
+	"github.com/szza/gnet/v2/pkg/buffer/elastic"
+	errorx "github.com/szza/gnet/v2/pkg/errors"
+	"github.com/szza/gnet/v2/pkg/logging"
+	bsPool "github.com/szza/gnet/v2/pkg/pool/byteslice"
 )
 
 type conn struct {
@@ -312,35 +312,36 @@ func (c *conn) Read(p []byte) (n int, err error) {
 }
 
 func (c *conn) Next(n int) (buf []byte, err error) {
-	inBufferLen := c.inboundBuffer.Buffered()
-	if totalLen := inBufferLen + len(c.buffer); n > totalLen {
-		return nil, io.ErrShortBuffer
-	} else if n <= 0 {
-		n = totalLen
-	}
+	// inBufferLen := c.inboundBuffer.Buffered()
+	// if totalLen := inBufferLen + len(c.buffer); n > totalLen {
+	// 	return nil, io.ErrShortBuffer
+	// } else if n <= 0 {
+	// 	n = totalLen
+	// }
 
-	if c.inboundBuffer.IsEmpty() {
-		buf = c.buffer[:n]
-		c.buffer = c.buffer[n:]
-		return
-	}
+	// if c.inboundBuffer.IsEmpty() {
+	// 	buf = c.buffer[:n]
+	// 	c.buffer = c.buffer[n:]
+	// 	return
+	// }
 
-	head, tail := c.inboundBuffer.Peek(n)
-	defer c.inboundBuffer.Discard(n) //nolint:errcheck
-	c.loop.cache.Reset()
-	c.loop.cache.Write(head)
-	if len(head) == n {
-		return c.loop.cache.Bytes(), err
-	}
-	c.loop.cache.Write(tail)
-	if inBufferLen >= n {
-		return c.loop.cache.Bytes(), err
-	}
+	// head, tail := c.inboundBuffer.Peek(n)
+	// defer c.inboundBuffer.Discard(n) //nolint:errcheck
+	// c.loop.cache.Reset()
+	// c.loop.cache.Write(head)
+	// if len(head) == n {
+	// 	return c.loop.cache.Bytes(), err
+	// }
+	// c.loop.cache.Write(tail)
+	// if inBufferLen >= n {
+	// 	return c.loop.cache.Bytes(), err
+	// }
 
-	remaining := n - inBufferLen
-	c.loop.cache.Write(c.buffer[:remaining])
-	c.buffer = c.buffer[remaining:]
-	return c.loop.cache.Bytes(), err
+	// remaining := n - inBufferLen
+	// c.loop.cache.Write(c.buffer[:remaining])
+	// c.buffer = c.buffer[remaining:]
+	// return c.loop.cache.Bytes(), err
+	return
 }
 
 func (c *conn) Peek(n int) (buf []byte, err error) {
@@ -359,21 +360,25 @@ func (c *conn) Peek(n int) (buf []byte, err error) {
 	if len(head) == n {
 		return head, err
 	}
-	c.loop.cache.Reset()
-	c.loop.cache.Write(head)
-	c.loop.cache.Write(tail)
+	c.loop.cache = bsPool.Get(n)[:0]
+	c.loop.cache = append(c.loop.cache, head...)
+	c.loop.cache = append(c.loop.cache, tail...)
 	if inBufferLen >= n {
-		return c.loop.cache.Bytes(), err
+		return c.loop.cache, err
 	}
 
 	remaining := n - inBufferLen
-	c.loop.cache.Write(c.buffer[:remaining])
-	return c.loop.cache.Bytes(), err
+	c.loop.cache = append(c.loop.cache, c.buffer[:remaining]...)
+	return c.loop.cache, err
 }
 
 func (c *conn) Discard(n int) (int, error) {
 	inBufferLen := c.inboundBuffer.Buffered()
 	tempBufferLen := len(c.buffer)
+	if len(c.loop.cache) != 0 {
+		bsPool.Put(c.loop.cache)
+		c.loop.cache = nil
+	}
 	if inBufferLen+tempBufferLen < n || n <= 0 {
 		c.resetBuffer()
 		return inBufferLen + tempBufferLen, nil

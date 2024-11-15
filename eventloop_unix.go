@@ -18,7 +18,6 @@
 package gnet
 
 import (
-	"bytes"
 	"context"
 	"errors"
 	"fmt"
@@ -29,19 +28,19 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	errorx "github.com/szza/gnet/v2/pkg/errors"
-	"github.com/szza/gnet/v2/pkg/logging"
 	gio "github.com/szza/gnet/v2/internal/io"
 	"github.com/szza/gnet/v2/internal/netpoll"
 	"github.com/szza/gnet/v2/internal/queue"
+	errorx "github.com/szza/gnet/v2/pkg/errors"
+	"github.com/szza/gnet/v2/pkg/logging"
 )
 
 type eventloop struct {
 	listeners    map[int]*listener // listeners
 	idx          int               // loop index in the engine loops list
-	cache        bytes.Buffer      // temporary buffer for scattered bytes
 	engine       *engine           // engine in loop
 	poller       *netpoll.Poller   // epoll or kqueue
+	cache        []byte            // temporary buffer for scattered bytes
 	buffer       []byte            // read packet buffer whose capacity is set by user, default value is 64KB
 	connections  connMatrix        // loop connections storage
 	eventHandler EventHandler      // user eventHandler
