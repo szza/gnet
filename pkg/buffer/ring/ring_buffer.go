@@ -24,9 +24,9 @@ import (
 	"errors"
 	"io"
 
-	"github.com/panjf2000/gnet/v2/internal/bs"
-	"github.com/panjf2000/gnet/v2/internal/math"
-	bsPool "github.com/panjf2000/gnet/v2/pkg/pool/byteslice"
+	bsPool "github.com/szza/gnet/v2/pkg/pool/byteslice"
+	"github.com/szza/gnet/v2/internal/bs"
+	"github.com/szza/gnet/v2/internal/math"
 )
 
 const (

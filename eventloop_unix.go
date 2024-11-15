@@ -29,11 +29,11 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	gio "github.com/panjf2000/gnet/v2/internal/io"
-	"github.com/panjf2000/gnet/v2/internal/netpoll"
-	"github.com/panjf2000/gnet/v2/internal/queue"
-	errorx "github.com/panjf2000/gnet/v2/pkg/errors"
-	"github.com/panjf2000/gnet/v2/pkg/logging"
+	errorx "github.com/szza/gnet/v2/pkg/errors"
+	"github.com/szza/gnet/v2/pkg/logging"
+	gio "github.com/szza/gnet/v2/internal/io"
+	"github.com/szza/gnet/v2/internal/netpoll"
+	"github.com/szza/gnet/v2/internal/queue"
 )
 
 type eventloop struct {

@@ -20,7 +20,7 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	errorx "github.com/panjf2000/gnet/v2/pkg/errors"
+	errorx "github.com/szza/gnet/v2/pkg/errors"
 )
 
 // SetKeepAlivePeriod sets whether the operating system should send

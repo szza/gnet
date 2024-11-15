@@ -22,8 +22,8 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	"github.com/panjf2000/gnet/v2/internal/bs"
-	bsPool "github.com/panjf2000/gnet/v2/pkg/pool/byteslice"
+	bsPool "github.com/szza/gnet/v2/pkg/pool/byteslice"
+	"github.com/szza/gnet/v2/internal/bs"
 )
 
 // SockaddrToTCPOrUnixAddr converts a Sockaddr to a net.TCPAddr or net.UnixAddr.

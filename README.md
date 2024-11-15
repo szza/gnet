@@ -1,16 +1,16 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/panjf2000/logos/master/gnet/logo.png" alt="gnet" />
 <br />
-<a title="Build Status" target="_blank" href="https://github.com/panjf2000/gnet/actions?query=workflow%3ATests"><img src="https://img.shields.io/github/actions/workflow/status/panjf2000/gnet/test.yml?branch=dev&style=flat-square&logo=github-actions" /></a>
+<a title="Build Status" target="_blank" href="https://github.com/szza/gnet/actions?query=workflow%3ATests"><img src="https://img.shields.io/github/actions/workflow/status/panjf2000/gnet/test.yml?branch=dev&style=flat-square&logo=github-actions" /></a>
 <a title="Codecov" target="_blank" href="https://codecov.io/gh/panjf2000/gnet"><img src="https://img.shields.io/codecov/c/github/panjf2000/gnet?style=flat-square&logo=codecov" /></a>
-<a title="Supported Platforms" target="_blank" href="https://github.com/panjf2000/gnet"><img src="https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20*BSD%20%7C%20Windows-549688?style=flat-square&logo=launchpad" /></a>
-<a title="Minimum Go Version" target="_blank" href="https://github.com/panjf2000/gnet"><img src="https://img.shields.io/badge/go-%3E%3D1.20-30dff3?style=flat-square&logo=go" /></a>
+<a title="Supported Platforms" target="_blank" href="https://github.com/szza/gnet"><img src="https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20*BSD%20%7C%20Windows-549688?style=flat-square&logo=launchpad" /></a>
+<a title="Minimum Go Version" target="_blank" href="https://github.com/szza/gnet"><img src="https://img.shields.io/badge/go-%3E%3D1.20-30dff3?style=flat-square&logo=go" /></a>
 <br />
-<a title="Go Report Card" target="_blank" href="https://goreportcard.com/report/github.com/panjf2000/gnet"><img src="https://goreportcard.com/badge/github.com/panjf2000/gnet?style=flat-square" /></a>
-<a title="Doc for gnet" target="_blank" href="https://pkg.go.dev/github.com/panjf2000/gnet/v2#section-documentation"><img src="https://img.shields.io/badge/go.dev-doc-007d9c?style=flat-square&logo=read-the-docs" /></a>
+<a title="Go Report Card" target="_blank" href="https://goreportcard.com/report/github.com/szza/gnet"><img src="https://goreportcard.com/badge/github.com/szza/gnet?style=flat-square" /></a>
+<a title="Doc for gnet" target="_blank" href="https://pkg.go.dev/github.com/szza/gnet/v2#section-documentation"><img src="https://img.shields.io/badge/go.dev-doc-007d9c?style=flat-square&logo=read-the-docs" /></a>
 <a title="Mentioned in Awesome Go" target="_blank" href="https://github.com/avelino/awesome-go#networking"><img src="https://awesome.re/mentioned-badge-flat.svg" /></a>
-<a title="Release" target="_blank" href="https://github.com/panjf2000/gnet/releases"><img src="https://img.shields.io/github/v/release/panjf2000/gnet.svg?color=161823&style=flat-square&logo=smartthings" /></a>
-<a title="Tag" target="_blank" href="https://github.com/panjf2000/gnet/tags"><img src="https://img.shields.io/github/v/tag/panjf2000/gnet?color=%23ff8936&logo=fitbit&style=flat-square" /></a>
+<a title="Release" target="_blank" href="https://github.com/szza/gnet/releases"><img src="https://img.shields.io/github/v/release/panjf2000/gnet.svg?color=161823&style=flat-square&logo=smartthings" /></a>
+<a title="Tag" target="_blank" href="https://github.com/szza/gnet/tags"><img src="https://img.shields.io/github/v/tag/panjf2000/gnet?color=%23ff8936&logo=fitbit&style=flat-square" /></a>
 </p>
 
 English | [中文](README_ZH.md)
@@ -56,18 +56,18 @@ English | [中文](README_ZH.md)
 
 # 🎬 Getting started
 
-`gnet` is available as a Go module and we highly recommend that you use `gnet` via [Go Modules](https://go.dev/blog/using-go-modules), with Go 1.11 Modules enabled (Go 1.11+), you can just simply add `import "github.com/panjf2000/gnet/v2"` to the codebase and run `go mod download/go mod tidy` or `go [build|run|test]` to download the necessary dependencies automatically.
+`gnet` is available as a Go module and we highly recommend that you use `gnet` via [Go Modules](https://go.dev/blog/using-go-modules), with Go 1.11 Modules enabled (Go 1.11+), you can just simply add `import "github.com/szza/gnet/v2"` to the codebase and run `go mod download/go mod tidy` or `go [build|run|test]` to download the necessary dependencies automatically.
 
 ## With v2
 
 ```bash
-go get -u github.com/panjf2000/gnet/v2
+go get -u github.com/szza/gnet/v2
 ```
 
 ## With v1
 
 ```bash
-go get -u github.com/panjf2000/gnet
+go get -u github.com/szza/gnet
 ```
 
 # 🎡 Use cases
@@ -174,9 +174,9 @@ Test duration   : 15s
 
 #### [Echo benchmark](https://github.com/gnet-io/gnet-benchmarks)
 
-![](https://github.com/panjf2000/gnet_benchmarks/raw/master/results/echo_conn_linux.png)
+![](https://github.com/szza/gnet_benchmarks/raw/master/results/echo_conn_linux.png)
 
-![](https://github.com/panjf2000/gnet_benchmarks/raw/master/results/echo_packet_linux.png)
+![](https://github.com/szza/gnet_benchmarks/raw/master/results/echo_packet_linux.png)
 
 ## On MacOS (kqueue)
 
@@ -200,9 +200,9 @@ Test duration   : 15s
 
 #### [Echo benchmark](https://github.com/gnet-io/gnet-benchmarks)
 
-![](https://github.com/panjf2000/gnet_benchmarks/raw/master/results/echo_conn_macos.png)
+![](https://github.com/szza/gnet_benchmarks/raw/master/results/echo_conn_macos.png)
 
-![](https://github.com/panjf2000/gnet_benchmarks/raw/master/results/echo_packet_macos.png)
+![](https://github.com/szza/gnet_benchmarks/raw/master/results/echo_packet_macos.png)
 
 # ⚠️ License
 
@@ -212,7 +212,7 @@ The source code of `gnet` should be distributed under the Apache-2.0 license.
 
 Please read the [Contributing Guidelines](CONTRIBUTING.md) before opening a PR and thank you to all the developers who already made contributions to `gnet`!
 
-<a href="https://github.com/panjf2000/gnet/graphs/contributors">
+<a href="https://github.com/szza/gnet/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=panjf2000/gnet" />
 </a>
 

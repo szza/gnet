@@ -14,7 +14,7 @@
 
 package socket
 
-import errorx "github.com/panjf2000/gnet/v2/pkg/errors"
+import errorx "github.com/szza/gnet/v2/pkg/errors"
 
 // SetKeepAlivePeriod sets whether the operating system should send
 // keep-alive messages on the connection and sets period between TCP keep-alive probes.

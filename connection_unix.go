@@ -25,16 +25,16 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	"github.com/panjf2000/gnet/v2/internal/bs"
-	"github.com/panjf2000/gnet/v2/internal/gfd"
-	gio "github.com/panjf2000/gnet/v2/internal/io"
-	"github.com/panjf2000/gnet/v2/internal/netpoll"
-	"github.com/panjf2000/gnet/v2/internal/queue"
-	"github.com/panjf2000/gnet/v2/internal/socket"
-	"github.com/panjf2000/gnet/v2/pkg/buffer/elastic"
-	errorx "github.com/panjf2000/gnet/v2/pkg/errors"
-	"github.com/panjf2000/gnet/v2/pkg/logging"
-	bsPool "github.com/panjf2000/gnet/v2/pkg/pool/byteslice"
+	"github.com/szza/gnet/v2/pkg/buffer/elastic"
+	errorx "github.com/szza/gnet/v2/pkg/errors"
+	"github.com/szza/gnet/v2/pkg/logging"
+	bsPool "github.com/szza/gnet/v2/pkg/pool/byteslice"
+	"github.com/szza/gnet/v2/internal/bs"
+	"github.com/szza/gnet/v2/internal/gfd"
+	gio "github.com/szza/gnet/v2/internal/io"
+	"github.com/szza/gnet/v2/internal/netpoll"
+	"github.com/szza/gnet/v2/internal/queue"
+	"github.com/szza/gnet/v2/internal/socket"
 )
 
 type conn struct {

@@ -10,7 +10,7 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	goPool "github.com/panjf2000/gnet/v2/pkg/pool/goroutine"
+	goPool "github.com/szza/gnet/v2/pkg/pool/goroutine"
 )
 
 var testVastConns = false

@@ -24,10 +24,10 @@ import (
 	"github.com/panjf2000/ants/v2"
 	"golang.org/x/sys/windows"
 
-	"github.com/panjf2000/gnet/v2/pkg/buffer/elastic"
-	errorx "github.com/panjf2000/gnet/v2/pkg/errors"
-	bbPool "github.com/panjf2000/gnet/v2/pkg/pool/bytebuffer"
-	goPool "github.com/panjf2000/gnet/v2/pkg/pool/goroutine"
+	"github.com/szza/gnet/v2/pkg/buffer/elastic"
+	errorx "github.com/szza/gnet/v2/pkg/errors"
+	bbPool "github.com/szza/gnet/v2/pkg/pool/bytebuffer"
+	goPool "github.com/szza/gnet/v2/pkg/pool/goroutine"
 )
 
 type netErr struct {

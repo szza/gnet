@@ -26,9 +26,9 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	"github.com/panjf2000/gnet/v2/internal/queue"
-	errorx "github.com/panjf2000/gnet/v2/pkg/errors"
-	"github.com/panjf2000/gnet/v2/pkg/logging"
+	errorx "github.com/szza/gnet/v2/pkg/errors"
+	"github.com/szza/gnet/v2/pkg/logging"
+	"github.com/szza/gnet/v2/internal/queue"
 )
 
 // Poller represents a poller which is in charge of monitoring file-descriptors.

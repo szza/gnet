@@ -20,7 +20,7 @@ package netpoll
 import (
 	"golang.org/x/sys/unix"
 
-	"github.com/panjf2000/gnet/v2/pkg/logging"
+	"github.com/szza/gnet/v2/pkg/logging"
 )
 
 // TODO(panjf2000): NetBSD didn't implement EVFILT_USER for user-established events

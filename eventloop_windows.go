@@ -23,8 +23,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	errorx "github.com/panjf2000/gnet/v2/pkg/errors"
-	"github.com/panjf2000/gnet/v2/pkg/logging"
+	errorx "github.com/szza/gnet/v2/pkg/errors"
+	"github.com/szza/gnet/v2/pkg/logging"
 )
 
 type eventloop struct {

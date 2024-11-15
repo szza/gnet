@@ -23,10 +23,10 @@ import (
 	"go.uber.org/zap"
 	"golang.org/x/sync/errgroup"
 
-	errorx "github.com/panjf2000/gnet/v2/pkg/errors"
-	"github.com/panjf2000/gnet/v2/pkg/logging"
-	bbPool "github.com/panjf2000/gnet/v2/pkg/pool/bytebuffer"
-	goPool "github.com/panjf2000/gnet/v2/pkg/pool/goroutine"
+	errorx "github.com/szza/gnet/v2/pkg/errors"
+	"github.com/szza/gnet/v2/pkg/logging"
+	bbPool "github.com/szza/gnet/v2/pkg/pool/bytebuffer"
+	goPool "github.com/szza/gnet/v2/pkg/pool/goroutine"
 )
 
 var (
